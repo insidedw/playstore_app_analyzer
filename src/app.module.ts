@@ -1,10 +1,16 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { ConfigModule } from '@nestjs/config';
+import { AppController } from './controllers/app.controller';
+import { PlayStoreService } from './services/play-store.service';
+import { OpenAIService } from './services/openai.service';
 
 @Module({
-  imports: [],
+  imports: [
+    ConfigModule.forRoot({
+      isGlobal: true,
+    }),
+  ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [PlayStoreService, OpenAIService],
 })
 export class AppModule {}
