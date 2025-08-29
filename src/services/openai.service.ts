@@ -12,7 +12,7 @@ export class OpenAIService {
     });
   }
 
-  async analyzeReviews(reviews: {text: string }[]) {
+  async analyzeReviews(reviews: { text: string }[]) {
     const prompt = `다음은 앱 리뷰들입니다. 이 리뷰들을 분석하여 앱의 주요 특징, 장점, 단점을 파악해주세요.
 
 리뷰들:
@@ -27,9 +27,9 @@ ${reviews.map((review) => `-: ${review.text}`).join('\n')}
 
     const completion = await this.openai.chat.completions.create({
       messages: [{ role: 'user', content: prompt }],
-      model: "gpt-4o",
+      model: 'gpt-4o',
     });
 
     return completion.choices[0].message.content;
   }
-} 
+}

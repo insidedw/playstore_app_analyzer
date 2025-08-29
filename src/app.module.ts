@@ -3,6 +3,7 @@ import { ConfigModule } from '@nestjs/config';
 import { AppController } from './controllers/app.controller';
 import { PlayStoreService } from './services/play-store.service';
 import { OpenAIService } from './services/openai.service';
+import { HanjaService } from './services/hanja.service';
 
 @Module({
   imports: [
@@ -11,6 +12,6 @@ import { OpenAIService } from './services/openai.service';
     }),
   ],
   controllers: [AppController],
-  providers: [PlayStoreService, OpenAIService],
+  providers: [PlayStoreService, OpenAIService, HanjaService],
 })
 export class AppModule {}
